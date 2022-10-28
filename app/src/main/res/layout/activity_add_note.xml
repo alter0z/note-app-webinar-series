@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/inputBg"
+    tools:context=".views.AddNote">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/field"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="@string/title"
+        android:inputType="textMultiLine"
+        android:paddingStart="17dp"
+        android:paddingTop="9dp"
+        android:paddingEnd="17dp"
+        android:paddingBottom="9dp"
+        android:textColor="?attr/boldText"
+        android:textColorHint="?attr/hintText"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/noteField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/noteField"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/field"
+        app:layout_constraintBottom_toTopOf="@+id/cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/field"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="@string/type_your_note_here"
+            android:inputType="textMultiLine"
+            android:paddingStart="17dp"
+            android:paddingTop="9dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="9dp"
+            android:textColor="?attr/boldText"
+            android:textColorHint="?attr/hintText"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/save"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteField" />
+
+    <Button
+        android:id="@+id/cancel"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/cancel"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save"
+        app:layout_constraintTop_toBottomOf="@+id/noteField"
+        app:strokeColor="@color/material_blue" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

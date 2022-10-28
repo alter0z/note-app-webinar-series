@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Notes App Webinar Series</string>
+    <string name="notes">Notes</string>
+    <string name="button">button</string>
+    <string name="icon">icon</string>
+    <string name="title">Title</string>
+    <string name="type_your_note_here">Type your note here</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure_want_to_delete_this_note">Are you sure want to delete this note?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>

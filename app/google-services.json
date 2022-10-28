@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "994251586161",
+    "project_id": "notes-app-webinar-series",
+    "storage_bucket": "notes-app-webinar-series.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994251586161:android:25d8e59613ce2ac9b639d0",
+        "android_client_info": {
+          "package_name": "com.intern.notesappwebinarseries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994251586161-5ofts83jhdrqccg97fsc36olel4tab2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3m_CcIOXeVASenzwZpu_WTLSWJYkEY1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994251586161-5ofts83jhdrqccg97fsc36olel4tab2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
