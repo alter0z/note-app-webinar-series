@@ -10,9 +10,15 @@ import com.intern.notesappwebinarseries.listeners.OnEditClickListener
 import com.intern.notesappwebinarseries.models.NoteModel
 import java.text.SimpleDateFormat
 
-class NoteListAdapter(private val noteList: ArrayList<NoteModel>): RecyclerView.Adapter<NoteListAdapter.ViewHolder>() {
+class NoteListAdapter: RecyclerView.Adapter<NoteListAdapter.ViewHolder>() {
+    private val noteList = ArrayList<NoteModel>()
     private lateinit var onEditClickListener: OnEditClickListener
     private lateinit var onDeleteClickListener: OnDeleteClickListener
+
+    fun setNote(list: List<NoteModel>) {
+        this.noteList.addAll(list)
+        notifyDataSetChanged()
+    }
 
     fun setOnEditClickListener(onEditClickListener: OnEditClickListener) {
         this.onEditClickListener = onEditClickListener
@@ -37,7 +43,10 @@ class NoteListAdapter(private val noteList: ArrayList<NoteModel>): RecyclerView.
                 binding.dateAdded.text = date
 
                 binding.edit.setOnClickListener { onEditClickListener.onEditClick(noteList[position]) }
-                binding.delete.setOnClickListener { onDeleteClickListener.onDeleteClick(noteList[position]) }
+                binding.delete.setOnClickListener {
+                    onDeleteClickListener.onDeleteClick(noteList[position])
+                    noteList.clear()
+                }
 
                 if (position == 0) {
                     val params = itemView.layoutParams as RecyclerView.LayoutParams

@@ -5,16 +5,19 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import com.intern.notesappwebinarseries.databinding.ActivityEditNoteBinding
 import com.intern.notesappwebinarseries.models.NoteModel
 import com.intern.notesappwebinarseries.services.DatabaseReference
+import com.intern.notesappwebinarseries.viewmodels.NoteViewModel
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class EditNote : AppCompatActivity() {
     private var _binding: ActivityEditNoteBinding? = null
     private val binding get() = _binding!!
+    private val noteViewModel: NoteViewModel by viewModels()
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,6 @@ class EditNote : AppCompatActivity() {
         binding.cancel.setOnClickListener { finish() }
 
         binding.save.setOnClickListener {
-            val ref = DatabaseReference.getDBRef()
             val title = binding.title.text.toString()
             val note = binding.note.text.toString()
             val dateUpdate = "Edited on ${humanDateFormat(LocalDateTime.now())}"
@@ -38,9 +40,7 @@ class EditNote : AppCompatActivity() {
                 binding.title.text!!.isEmpty() -> binding.title.error = "Title Required!"
                 binding.note.text!!.isEmpty() -> binding.note.error = "Note Required!"
                 else -> {
-                    ref.child(data.id!!).child("title").setValue(title)
-                    ref.child(data.id).child("note").setValue(note)
-                    ref.child(data.id).child("date").setValue(dateUpdate)
+                    data.id?.let { id -> noteViewModel.editNote(title, note, dateUpdate, id) }
 
                     Toast.makeText(this,"Note Edited!", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this,NoteList::class.java))
